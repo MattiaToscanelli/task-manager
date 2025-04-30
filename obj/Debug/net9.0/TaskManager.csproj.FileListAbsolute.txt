@@ -2131,3 +2131,4 @@
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/nvghg3o3cy-kfjal2hdo8.gz
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/wrppgjgmsf-zwjib1tvmr.gz
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/utq6m56ges-akj26q1uar.gz
+/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/TaskManager.sourcelink.json

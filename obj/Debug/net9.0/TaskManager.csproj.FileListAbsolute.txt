@@ -17,8 +17,6 @@
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/bundle/TaskManager.styles.css
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/projectbundle/TaskManager.bundle.scp.css
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/70vkrdatxb-khy4lop6wu.gz
-/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-rtn3y2pdev.gz
-/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-rtn3y2pdev.gz
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/staticwebassets.build.json
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/staticwebassets.development.json
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/staticwebassets.build.endpoints.json
@@ -34,3 +32,5 @@
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/TaskManager.genruntimeconfig.cache
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/ref/TaskManager.dll
 /Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/TaskManager.sourcelink.json
+/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-ifmcgat18w.gz
+/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-ifmcgat18w.gz

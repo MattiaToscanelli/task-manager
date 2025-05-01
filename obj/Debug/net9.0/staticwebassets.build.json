@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SPhgsSXIBGqsRZetpstSP3n1oC0SsaorezCO/J2Nbbs=",
+  "Hash": "daFfU3qSZbF/qFMLenRnpXAnRVfeeQ0OkLeLoTouy8o=",
   "Source": "TaskManager",
   "BasePath": "_content/TaskManager",
   "Mode": "Default",
@@ -17,12 +17,12 @@
   ],
   "Assets": [
     {
-      "Identity": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-rtn3y2pdev.gz",
+      "Identity": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-ifmcgat18w.gz",
       "SourceId": "TaskManager",
       "SourceType": "Computed",
       "ContentRoot": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/TaskManager",
-      "RelativePath": "TaskManager#[.{fingerprint=rtn3y2pdev}]!.bundle.scp.css.gz",
+      "RelativePath": "TaskManager#[.{fingerprint=ifmcgat18w}]!.bundle.scp.css.gz",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Alternative",
@@ -31,8 +31,8 @@
       "RelatedAsset": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/projectbundle/TaskManager.bundle.scp.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "gqu1cn1nyc",
-      "Integrity": "2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=",
+      "Fingerprint": "wl1dtwcupa",
+      "Integrity": "nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/projectbundle/TaskManager.bundle.scp.css"
@@ -59,12 +59,12 @@
       "OriginalItemSpec": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/wwwroot/app.css"
     },
     {
-      "Identity": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-rtn3y2pdev.gz",
+      "Identity": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-ifmcgat18w.gz",
       "SourceId": "TaskManager",
       "SourceType": "Computed",
       "ContentRoot": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/TaskManager",
-      "RelativePath": "TaskManager#[.{fingerprint=rtn3y2pdev}]?.styles.css.gz",
+      "RelativePath": "TaskManager#[.{fingerprint=ifmcgat18w}]?.styles.css.gz",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Alternative",
@@ -73,8 +73,8 @@
       "RelatedAsset": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/bundle/TaskManager.styles.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "gqu1cn1nyc",
-      "Integrity": "2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=",
+      "Fingerprint": "wl1dtwcupa",
+      "Integrity": "nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/bundle/TaskManager.styles.css"
@@ -94,8 +94,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "rtn3y2pdev",
-      "Integrity": "oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=",
+      "Fingerprint": "ifmcgat18w",
+      "Integrity": "joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/bundle/TaskManager.styles.css"
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "rtn3y2pdev",
-      "Integrity": "oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=",
+      "Fingerprint": "ifmcgat18w",
+      "Integrity": "joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/projectbundle/TaskManager.bundle.scp.css"
@@ -547,12 +547,12 @@
     },
     {
       "Route": "TaskManager.bundle.scp.css",
-      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-rtn3y2pdev.gz",
+      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-ifmcgat18w.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000566572238"
+          "Quality": "0.001216545012"
         }
       ],
       "ResponseHeaders": [
@@ -562,15 +562,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1764"
+          "Value": "821"
         },
         {
           "Name": "ETag",
-          "Value": "\"2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=\""
+          "Value": "\"nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -590,13 +590,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=\""
+          "Value": "W/\"joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E="
+          "Value": "sha256-joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc="
         }
       ]
     },
@@ -611,7 +611,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5764"
+          "Value": "2285"
         },
         {
           "Name": "Content-Type",
@@ -619,11 +619,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=\""
+          "Value": "\"joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -633,13 +633,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E="
+          "Value": "sha256-joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc="
         }
       ]
     },
     {
       "Route": "TaskManager.bundle.scp.css.gz",
-      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-rtn3y2pdev.gz",
+      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-ifmcgat18w.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -648,7 +648,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1764"
+          "Value": "821"
         },
         {
           "Name": "Content-Type",
@@ -656,11 +656,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=\""
+          "Value": "\"nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -678,18 +678,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8="
+          "Value": "sha256-nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU="
         }
       ]
     },
     {
-      "Route": "TaskManager.rtn3y2pdev.bundle.scp.css",
-      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-rtn3y2pdev.gz",
+      "Route": "TaskManager.ifmcgat18w.bundle.scp.css",
+      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-ifmcgat18w.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000566572238"
+          "Quality": "0.001216545012"
         }
       ],
       "ResponseHeaders": [
@@ -699,15 +699,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1764"
+          "Value": "821"
         },
         {
           "Name": "ETag",
-          "Value": "\"2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=\""
+          "Value": "\"nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -727,13 +727,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=\""
+          "Value": "W/\"joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rtn3y2pdev"
+          "Value": "ifmcgat18w"
         },
         {
           "Name": "label",
@@ -741,12 +741,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E="
+          "Value": "sha256-joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc="
         }
       ]
     },
     {
-      "Route": "TaskManager.rtn3y2pdev.bundle.scp.css",
+      "Route": "TaskManager.ifmcgat18w.bundle.scp.css",
       "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/projectbundle/TaskManager.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -756,7 +756,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5764"
+          "Value": "2285"
         },
         {
           "Name": "Content-Type",
@@ -764,11 +764,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=\""
+          "Value": "\"joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -778,7 +778,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rtn3y2pdev"
+          "Value": "ifmcgat18w"
         },
         {
           "Name": "label",
@@ -786,13 +786,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E="
+          "Value": "sha256-joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc="
         }
       ]
     },
     {
-      "Route": "TaskManager.rtn3y2pdev.bundle.scp.css.gz",
-      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-rtn3y2pdev.gz",
+      "Route": "TaskManager.ifmcgat18w.bundle.scp.css.gz",
+      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/6f7e06aedn-ifmcgat18w.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -801,7 +801,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1764"
+          "Value": "821"
         },
         {
           "Name": "Content-Type",
@@ -809,11 +809,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=\""
+          "Value": "\"nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -831,7 +831,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rtn3y2pdev"
+          "Value": "ifmcgat18w"
         },
         {
           "Name": "label",
@@ -839,18 +839,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8="
+          "Value": "sha256-nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU="
         }
       ]
     },
     {
-      "Route": "TaskManager.rtn3y2pdev.styles.css",
-      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-rtn3y2pdev.gz",
+      "Route": "TaskManager.ifmcgat18w.styles.css",
+      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-ifmcgat18w.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000566572238"
+          "Quality": "0.001216545012"
         }
       ],
       "ResponseHeaders": [
@@ -860,15 +860,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1764"
+          "Value": "821"
         },
         {
           "Name": "ETag",
-          "Value": "\"2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=\""
+          "Value": "\"nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -888,13 +888,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=\""
+          "Value": "W/\"joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rtn3y2pdev"
+          "Value": "ifmcgat18w"
         },
         {
           "Name": "label",
@@ -902,12 +902,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E="
+          "Value": "sha256-joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc="
         }
       ]
     },
     {
-      "Route": "TaskManager.rtn3y2pdev.styles.css",
+      "Route": "TaskManager.ifmcgat18w.styles.css",
       "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/scopedcss/bundle/TaskManager.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -917,7 +917,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5764"
+          "Value": "2285"
         },
         {
           "Name": "Content-Type",
@@ -925,11 +925,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=\""
+          "Value": "\"joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -939,7 +939,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rtn3y2pdev"
+          "Value": "ifmcgat18w"
         },
         {
           "Name": "label",
@@ -947,13 +947,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E="
+          "Value": "sha256-joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc="
         }
       ]
     },
     {
-      "Route": "TaskManager.rtn3y2pdev.styles.css.gz",
-      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-rtn3y2pdev.gz",
+      "Route": "TaskManager.ifmcgat18w.styles.css.gz",
+      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-ifmcgat18w.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -962,7 +962,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1764"
+          "Value": "821"
         },
         {
           "Name": "Content-Type",
@@ -970,11 +970,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=\""
+          "Value": "\"nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -992,7 +992,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rtn3y2pdev"
+          "Value": "ifmcgat18w"
         },
         {
           "Name": "label",
@@ -1000,18 +1000,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8="
+          "Value": "sha256-nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU="
         }
       ]
     },
     {
       "Route": "TaskManager.styles.css",
-      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-rtn3y2pdev.gz",
+      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-ifmcgat18w.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000566572238"
+          "Quality": "0.001216545012"
         }
       ],
       "ResponseHeaders": [
@@ -1021,15 +1021,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1764"
+          "Value": "821"
         },
         {
           "Name": "ETag",
-          "Value": "\"2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=\""
+          "Value": "\"nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1049,13 +1049,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=\""
+          "Value": "W/\"joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E="
+          "Value": "sha256-joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc="
         }
       ]
     },
@@ -1070,7 +1070,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5764"
+          "Value": "2285"
         },
         {
           "Name": "Content-Type",
@@ -1078,11 +1078,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E=\""
+          "Value": "\"joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1092,13 +1092,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-oeo0Y6nzMjOF87J8VgJBMDBybri2ShpxFOH5EtXwQ7E="
+          "Value": "sha256-joT4G02vl70dnX/PSQrDvAu/6WPwAYDzilcDgJnw0zc="
         }
       ]
     },
     {
       "Route": "TaskManager.styles.css.gz",
-      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-rtn3y2pdev.gz",
+      "AssetFile": "/Users/mattiatoscanelli/Documents/BoredTime/TaskManager/obj/Debug/net9.0/compressed/v60kpk2lv8-ifmcgat18w.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1107,7 +1107,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1764"
+          "Value": "821"
         },
         {
           "Name": "Content-Type",
@@ -1115,11 +1115,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8=\""
+          "Value": "\"nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 16:43:01 GMT"
+          "Value": "Thu, 01 May 2025 19:21:27 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1137,7 +1137,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2GnyU6WHdyAyCEzGB5/Zj4nXSKReIrPMfT5vBtDEKB8="
+          "Value": "sha256-nLmZgqMjZs6rA8twRlHcby/YGju81yRqUPQ5d9RuBaU="
         }
       ]
     }

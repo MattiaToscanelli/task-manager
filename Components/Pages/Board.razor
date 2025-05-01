@@ -1,0 +1,11 @@
+@page "/board/{boardId:int}"
+
+<PageTitle>Board</PageTitle>
+
+<h1>Board @BoardId</h1>
+
+
+@code {
+    [Parameter]
+    public int BoardId { get; set; }
+}

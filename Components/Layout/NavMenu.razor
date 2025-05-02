@@ -1,21 +1,30 @@
-﻿<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <NavLink class="navbar-brand" href="/">TaskManager</NavLink>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-            <NavLink class="nav-link" href="/board/1">Board #1</NavLink>
-        </li>
-        <li class="nav-item">
-          <NavLink class="nav-link" href="/board/2">Board #2</NavLink>
-        </li>
-        <li class="nav-item">
-          <NavLink class="nav-link" href="/board/3">Board #3</NavLink>
-        </li>
-      </ul>
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container-fluid">
+        <NavLink class="navbar-brand fw-bold text-light" href="/">TaskManager</NavLink>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/board/1" Match="NavLinkMatch.All">
+                        Board #1
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/board/2">
+                        Board #2
+                    </NavLink>
+                </li>
+                <li class="nav-item">
+                    <NavLink class="nav-link" href="/board/3">
+                        Board #3
+                    </NavLink>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>

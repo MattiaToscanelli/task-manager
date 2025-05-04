@@ -1,11 +1,34 @@
 @page "/board/{boardId:int}"
 
+@using TaskManager.Components.Elements
+
 <PageTitle>Board</PageTitle>
 
-<h1>Board @BoardId</h1>
+<div class="container-xl mt-4">
+    <h1 class="mb-4">Board #@BoardId</h1>
 
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">
+        <i class="bi bi-plus"></i> Add Task
+    </button>
+
+    <!-- Scrollable Row Wrapper -->
+    <div class="d-flex overflow-auto gap-3 p-2" style="scroll-snap-type: x mandatory;">
+        <TaskList BoardName="Title 1" TaskViews="@TaskViews" />
+        <TaskList BoardName="Title 2" TaskViews="@TaskViews" />
+        <TaskList BoardName="Title 3" TaskViews="@TaskViews" />
+    </div>
+</div>
+
+<AddTask />
 
 @code {
     [Parameter]
     public int BoardId { get; set; }
+
+    protected List<TaskView> TaskViews { get; set; } = new List<TaskView>
+    {
+        new TaskView { TaskId = 1, Title = "Task 1", Description = "Description for Task 1" },
+        new TaskView { TaskId = 2, Title = "Task 2", Description = "Description for Task 2" },
+        new TaskView { TaskId = 3, Title = "Task 3", Description = "Description for Task 3" }
+    };
 }

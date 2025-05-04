@@ -4,6 +4,7 @@
 
 <PageTitle>Board</PageTitle>
 
+
 <div class="container-xl mt-4">
     <h1 class="mb-4">Board #@BoardId</h1>
 
@@ -11,12 +12,16 @@
         <i class="bi bi-plus"></i> Add Task
     </button>
 
-    <!-- Scrollable Row Wrapper -->
-    <div class="d-flex overflow-auto gap-3 p-2" style="scroll-snap-type: x mandatory;">
-        <TaskList BoardName="Title 1" TaskViews="@TaskViews" />
-        <TaskList BoardName="Title 2" TaskViews="@TaskViews" />
-        <TaskList BoardName="Title 3" TaskViews="@TaskViews" />
+
+    <div class="board mt-2 mb-2">
+        <!-- Scrollable Row Wrapper -->
+        <div class="d-flex overflow-auto gap-3 p-2" style="scroll-snap-type: x mandatory;">
+            <TaskList BoardName="Title 1" TaskViews="@TaskViews" />
+            <TaskList BoardName="Title 2" TaskViews="@TaskViews" />
+            <TaskList BoardName="Title 3" TaskViews="@TaskViews" />
+        </div>
     </div>
+
 </div>
 
 <AddTask />
@@ -29,6 +34,11 @@
     {
         new TaskView { TaskId = 1, Title = "Task 1", Description = "Description for Task 1" },
         new TaskView { TaskId = 2, Title = "Task 2", Description = "Description for Task 2" },
-        new TaskView { TaskId = 3, Title = "Task 3", Description = "Description for Task 3" }
+        new TaskView { TaskId = 3, Title = "Task 3", Description = "Description for Task 3" },
+        new TaskView { TaskId = 4, Title = "Task 4", Description = "Description for Task 4" },
+        new TaskView { TaskId = 5, Title = "Task 5", Description = "Description for Task 5" },
+        new TaskView { TaskId = 6, Title = "Task 6", Description = "Description for Task 6" },
+        new TaskView { TaskId = 7, Title = "Task 7", Description = "Description for Task 7" },
+        new TaskView { TaskId = 8, Title = "Task 8", Description = "Description for Task 8" }
     };
 }

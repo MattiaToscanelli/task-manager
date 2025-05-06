@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TaskManager.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents(); // WE ARE USING INTERACTIVE SERVER COMPONENTS
+builder.Services.AddDbContext<TaskDbContext>(options =>
+    options.UseNpgsql("Host=localhost;Port=5432;Database=task_manager;Username=your_username;Password=your_username"));
 
 var app = builder.Build();
 

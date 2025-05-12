@@ -1,0 +1,68 @@
+@page "/settings"
+@rendermode InteractiveServer
+
+@using TaskManager.Models
+@using TaskManager.Service
+@using TaskManager.Components.Elements
+
+@inject BoardService BoardService
+
+<PageTitle>Settings</PageTitle>
+
+<h1>Settings</h1>
+<br />
+<h3>Manage Boards</h3>
+<br />
+
+<button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addBoardModal">
+    <i class="bi bi-plus"></i> Add Board
+</button>
+
+<!-- Table -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th width='5%'>Id</th>
+            <th width='90%'>Name</th>
+            <th width='5%'>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (boards != null && boards.Count > 0)
+        {
+            foreach (var board in boards)
+            {
+                <tr>
+                    <td>@board.Id</td>
+                    <td>@board.Name</td>
+                    <td>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">No boards available.</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<AddBoard OnBoardAdded="LoadBoardsAsync"/>
+
+@code {
+    private List<BoardM> boards = new List<BoardM>();
+
+    private async Task LoadBoardsAsync()
+    {
+        boards = await BoardService.GetAllBoardsAsync();
+        StateHasChanged();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadBoardsAsync();
+    }
+}

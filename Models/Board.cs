@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TaskManager.Models
 {
-    public class TaskPriority
+    public class BoardM
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public required string Name { get; set; }
         
-        [InverseProperty("Priority")]
-        public List<TaskM> Tasks { get; set; } = new List<TaskM>();
+        [InverseProperty("Board")]
+        public List<TaskList> taskLists { get; set; } = new List<TaskList>();
     }
 }

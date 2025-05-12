@@ -1,21 +1,26 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManager.Components;
+using TaskManager.Service;
+
+//dotnet add package Microsoft.EntityFrameworkCore --> for EF Core support
+//dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --> for PostgreSQL support
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
-    .AddInteractiveServerComponents(); // WE ARE USING INTERACTIVE SERVER COMPONENTS
+    .AddInteractiveServerComponents(); 
+
+builder.Services.AddScoped<BoardService>();
+
 builder.Services.AddDbContext<TaskDbContext>(options =>
-    options.UseNpgsql("Host=localhost;Port=5432;Database=task_manager;Username=your_username;Password=your_username"));
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 

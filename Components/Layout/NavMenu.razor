@@ -18,7 +18,7 @@
                 @foreach (var board in BoardState.Boards)
                 {
                     <li class="nav-item">
-                        <NavLink class="nav-link" href="/board/1" Match="NavLinkMatch.All">
+                        <NavLink class="nav-link"href="@($"/board/{board.Id}")" Match="NavLinkMatch.All">
                             @board.Name
                         </NavLink>
                     </li>

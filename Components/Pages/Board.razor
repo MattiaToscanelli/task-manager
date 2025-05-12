@@ -1,12 +1,17 @@
 @page "/board/{boardId:int}"
 
 @using TaskManager.Components.Elements
+@using TaskManager.Models
+@using TaskManager.Service
+
+@inject BoardService BoardService
+@inject NavigationManager NavigationManager
 
 <PageTitle>Board</PageTitle>
 
 
 <div class="container-xl mt-4">
-    <h1 class="mb-4">Board #@BoardId</h1>
+    <h1 class="mb-4">Board @BoardModel?.Name</h1>
 
     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">
         <i class="bi bi-plus"></i> Add Task
@@ -17,8 +22,12 @@
         <!-- Scrollable Row Wrapper -->
         <div class="d-flex overflow-auto gap-3 p-2" style="scroll-snap-type: x mandatory;">
             <TaskList BoardName="Title 1" TaskViews="@TaskViews" />
-            <TaskList BoardName="Title 2" TaskViews="@TaskViews" />
-            <TaskList BoardName="Title 3" TaskViews="@TaskViews" />
+            <TaskList BoardName="Title 1" TaskViews="@TaskViews" />
+            <div class="card flex-shrink-0 flex-grow-1 shadow-sm">
+                <div class="card-body overflow-auto d-flex justify-content-center align-items-center" style="flex-grow: 1;">
+                    <p class="text-muted text-center">Click to add a new task list...</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -30,6 +39,18 @@
     [Parameter]
     public int BoardId { get; set; }
 
+    protected BoardM? BoardModel { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        BoardModel = await BoardService.GetBoardByIdAsync(BoardId);
+        if (BoardModel == null)
+        {
+            NavigationManager.NavigateTo("/Error/404");
+        }
+    }
+
+
     protected List<TaskView> TaskViews { get; set; } = new List<TaskView>
     {
         new TaskView { TaskId = 1, Title = "Task 1", Description = "Description for Task 1" },
@@ -40,5 +61,9 @@
         new TaskView { TaskId = 6, Title = "Task 6", Description = "Description for Task 6" },
         new TaskView { TaskId = 7, Title = "Task 7", Description = "Description for Task 7" },
         new TaskView { TaskId = 8, Title = "Task 8", Description = "Description for Task 8" }
+    };
+
+     protected List<TaskView> TaskViews2 { get; set; } = new List<TaskView>
+    {
     };
 }

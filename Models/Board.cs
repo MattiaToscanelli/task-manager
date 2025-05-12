@@ -8,7 +8,9 @@ namespace TaskManager.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public required string Name { get; set; }
+
+        [MinLength(3, ErrorMessage = "Please insert a name bigger than 3 letters.")]
+        public string Name { get; set; }
         
         [InverseProperty("Board")]
         public List<TaskList> taskLists { get; set; } = new List<TaskList>();

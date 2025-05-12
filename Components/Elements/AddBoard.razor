@@ -34,19 +34,16 @@
 </div>
 
 @code {
-    [Parameter]
-    public EventCallback OnBoardAdded { get; set; }
 
-    private BoardM board = new BoardM { Name = "" };
+    private BoardM? board = new BoardM {Name = string.Empty};
 
     private async Task HandleValidSubmit()
     {
         await BoardService.CreateBoardAsync(board);
 
-        board = new BoardM { Name = "" };
+        board = new BoardM {Name = string.Empty};
         StateHasChanged();
 
-        await OnBoardAdded.InvokeAsync(); // Notify parent
         await BoardState.LoadBoardsAsync(BoardService);
 
         await JavaScript.InvokeVoidAsync("closeModal");

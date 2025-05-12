@@ -34,5 +34,15 @@ namespace TaskManager.Service
             await _db.SaveChangesAsync();
             return board;
         }
+
+        public async Task DeleteBoardAsync(int id)
+        {
+            var board = await _db.Boards.FindAsync(id);
+            if (board != null)
+            {
+                _db.Boards.Remove(board);
+                await _db.SaveChangesAsync();
+            }
+        }
     }
 }

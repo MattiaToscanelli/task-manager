@@ -6,6 +6,7 @@
 @using TaskManager.Components.Elements
 
 @inject BoardService BoardService
+@inject BoardState BoardState
 
 <PageTitle>Settings</PageTitle>
 
@@ -28,15 +29,15 @@
         </tr>
     </thead>
     <tbody>
-        @if (boards != null && boards.Count > 0)
+        @if (BoardState.Boards != null && BoardState.Boards.Count > 0)
         {
-            foreach (var board in boards)
+            foreach (var board in BoardState.Boards)
             {
                 <tr>
                     <td>@board.Id</td>
                     <td>@board.Name</td>
                     <td>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" @onclick="() => DeleteBoard(board.Id)">Delete</button>
                     </td>
                 </tr>
             }
@@ -50,19 +51,35 @@
     </tbody>
 </table>
 
-<AddBoard OnBoardAdded="LoadBoardsAsync"/>
+<AddBoard/>
 
 @code {
-    private List<BoardM> boards = new List<BoardM>();
-
-    private async Task LoadBoardsAsync()
-    {
-        boards = await BoardService.GetAllBoardsAsync();
-        StateHasChanged();
-    }
-
     protected override async Task OnInitializedAsync()
     {
-        await LoadBoardsAsync();
+       BoardState.OnChange += OnBoardStateChanged;
+
+       // Initial load
+        if (!BoardState.Boards.Any())
+        {
+            await BoardState.LoadBoardsAsync(BoardService);
+        }
+    }
+
+    private async Task DeleteBoard(int boardId)
+    {
+        await BoardService.DeleteBoardAsync(boardId);
+
+        await BoardState.LoadBoardsAsync(BoardService);
+
+    }
+
+    private void OnBoardStateChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        BoardState.OnChange -= OnBoardStateChanged;
     }
 }

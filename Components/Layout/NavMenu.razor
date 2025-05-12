@@ -1,4 +1,10 @@
-﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+﻿@rendermode InteractiveServer
+@using TaskManager.Service
+
+@inject BoardState BoardState
+@inject BoardService BoardService
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container-fluid">
         <NavLink class="navbar-brand fw-bold text-light" href="/">TaskManager</NavLink>
 
@@ -9,21 +15,14 @@
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="/board/1" Match="NavLinkMatch.All">
-                        Board #1
-                    </NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="/board/2">
-                        Board #2
-                    </NavLink>
-                </li>
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="/board/3">
-                        Board #3
-                    </NavLink>
-                </li>
+                @foreach (var board in BoardState.Boards)
+                {
+                    <li class="nav-item">
+                        <NavLink class="nav-link" href="/board/1" Match="NavLinkMatch.All">
+                            @board.Name
+                        </NavLink>
+                    </li>
+                }
                 <li class="nav-item">
                     <NavLink class="nav-link" href="/settings">
                         Settings
@@ -33,3 +32,26 @@
         </div>
     </div>
 </nav>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        BoardState.OnChange += OnBoardStateChanged;
+
+        // Initial load
+        if (!BoardState.Boards.Any())
+        {
+            await BoardState.LoadBoardsAsync(BoardService);
+        }
+    }
+
+    private void OnBoardStateChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        BoardState.OnChange -= OnBoardStateChanged;
+    }
+}

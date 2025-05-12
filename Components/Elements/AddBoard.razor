@@ -4,6 +4,7 @@
 
 @inject IJSRuntime JavaScript
 @inject BoardService BoardService
+@inject BoardState BoardState
 
 <div class="modal fade" id="addBoardModal" tabindex="-1" aria-labelledby="addBoardModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -46,6 +47,7 @@
         StateHasChanged();
 
         await OnBoardAdded.InvokeAsync(); // Notify parent
+        await BoardState.LoadBoardsAsync(BoardService);
 
         await JavaScript.InvokeVoidAsync("closeModal");
     }

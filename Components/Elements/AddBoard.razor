@@ -46,7 +46,7 @@
 
         await BoardState.LoadBoardsAsync(BoardService);
 
-        await JavaScript.InvokeVoidAsync("closeModal");
+        await JavaScript.InvokeVoidAsync("closeModal", "addBoardModal");
     }
 
 }

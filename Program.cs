@@ -13,6 +13,7 @@ builder.Services.AddRazorComponents()
 
 builder.Services.AddScoped<BoardService>();
 builder.Services.AddSingleton<BoardState>();
+builder.Services.AddScoped<TaskListService>();
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

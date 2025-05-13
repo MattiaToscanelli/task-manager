@@ -10,7 +10,11 @@ namespace TaskManager.Models
         public int Id { get; set; }
         public required string Title { get; set; }
         public required string Description { get; set; }
+
+        public int PriorityId { get; set; }
         public required TaskPriority Priority { get; set; }
-        public required TaskList TaskList { get; set; }
+
+        public int TaskListId { get; set; }
+        public required TaskListM TaskList { get; set; }
     }
 }

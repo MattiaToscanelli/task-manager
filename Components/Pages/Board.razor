@@ -1,10 +1,12 @@
 @page "/board/{boardId:int}"
+@rendermode InteractiveServer
 
 @using TaskManager.Components.Elements
 @using TaskManager.Models
 @using TaskManager.Service
 
 @inject BoardService BoardService
+@inject TaskListService TaskListService
 @inject NavigationManager NavigationManager
 
 <PageTitle>Board</PageTitle>
@@ -19,27 +21,37 @@
 
 
     <div class="board mt-2 mb-2">
-        <!-- Scrollable Row Wrapper -->
         <div class="d-flex overflow-auto gap-3 p-2" style="scroll-snap-type: x mandatory;">
-            <TaskList BoardName="Title 1" TaskViews="@TaskViews" />
-            <TaskList BoardName="Title 1" TaskViews="@TaskViews" />
-            <div class="card flex-shrink-0 flex-grow-1 shadow-sm">
+            @if (TaskLists != null && TaskLists.Count > 0)
+            {
+                @foreach (var taskList in TaskLists)
+                {
+                    <TaskList List="@taskList" OnTaskListDeleted="LoadBoardData" />
+                }
+            }
+
+            <div class="card flex-shrink-0 flex-grow-1 shadow-sm" 
+                data-bs-toggle="modal" data-bs-target="#addTaskListModal" 
+                style="cursor: pointer;">
                 <div class="card-body overflow-auto d-flex justify-content-center align-items-center" style="flex-grow: 1;">
-                    <p class="text-muted text-center">Click to add a new task list...</p>
+                    <p class="text-muted text-center mb-0">Click to add a new task list...</p>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 <AddTask />
+<AddTaskList BoardId="@BoardId" OnTaskListAdded="LoadBoardData" />
 
 @code {
     [Parameter]
     public int BoardId { get; set; }
 
     protected BoardM? BoardModel { get; set; }
+
+    protected List<TaskListM>? TaskLists { get; set; }
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -48,22 +60,16 @@
         {
             NavigationManager.NavigateTo("/Error/404");
         }
+
+        await LoadBoardData();
+    }
+
+    protected async Task LoadBoardData()
+    {
+        Console.WriteLine("LoadBoardData called");
+        TaskLists = await TaskListService.GetAllTaskListsAsync(BoardId);
+        StateHasChanged();
     }
 
 
-    protected List<TaskView> TaskViews { get; set; } = new List<TaskView>
-    {
-        new TaskView { TaskId = 1, Title = "Task 1", Description = "Description for Task 1" },
-        new TaskView { TaskId = 2, Title = "Task 2", Description = "Description for Task 2" },
-        new TaskView { TaskId = 3, Title = "Task 3", Description = "Description for Task 3" },
-        new TaskView { TaskId = 4, Title = "Task 4", Description = "Description for Task 4" },
-        new TaskView { TaskId = 5, Title = "Task 5", Description = "Description for Task 5" },
-        new TaskView { TaskId = 6, Title = "Task 6", Description = "Description for Task 6" },
-        new TaskView { TaskId = 7, Title = "Task 7", Description = "Description for Task 7" },
-        new TaskView { TaskId = 8, Title = "Task 8", Description = "Description for Task 8" }
-    };
-
-     protected List<TaskView> TaskViews2 { get; set; } = new List<TaskView>
-    {
-    };
 }

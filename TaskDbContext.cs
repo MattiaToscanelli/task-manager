@@ -9,7 +9,7 @@ public class TaskDbContext : DbContext
 
     public DbSet<BoardM> Boards { get; set; }
 
-    public DbSet<TaskList> TaskLists { get; set; }
+    public DbSet<TaskListM> TaskLists { get; set; }
 
     public DbSet<TaskM> Tasks { get; set; }
 

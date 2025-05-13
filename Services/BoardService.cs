@@ -11,7 +11,6 @@ namespace TaskManager.Service
         {
             _db = db;
         }
-
         public async Task<List<BoardM>> GetAllBoardsAsync()
         {
             return await _db.Boards

@@ -13,6 +13,6 @@ namespace TaskManager.Models
         public string Name { get; set; }
         
         [InverseProperty("Board")]
-        public List<TaskList> taskLists { get; set; } = new List<TaskList>();
+        public List<TaskListM> taskLists { get; set; } = new List<TaskListM>();
     }
 }

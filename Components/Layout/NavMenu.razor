@@ -3,6 +3,7 @@
 
 @inject BoardState BoardState
 @inject BoardService BoardService
+@inject IJSRuntime JSRuntime
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container-fluid">
@@ -18,13 +19,13 @@
                 @foreach (var board in BoardState.Boards)
                 {
                     <li class="nav-item">
-                        <NavLink class="nav-link"href="@($"/board/{board.Id}")" Match="NavLinkMatch.All">
+                        <NavLink class="nav-link"href="@($"/board/{board.Id}")" Match="NavLinkMatch.All" @onclick="CollapseNavbar">
                             @board.Name
                         </NavLink>
                     </li>
                 }
                 <li class="nav-item">
-                    <NavLink class="nav-link" href="/settings">
+                    <NavLink class="nav-link" href="/settings" @onclick="CollapseNavbar">
                         Settings
                     </NavLink>
                 </li>
@@ -48,6 +49,11 @@
     private void OnBoardStateChanged()
     {
         InvokeAsync(StateHasChanged);
+    }
+
+    private async Task CollapseNavbar()
+    {
+        await JSRuntime.InvokeVoidAsync("collapseNavbar");
     }
 
     public void Dispose()

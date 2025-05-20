@@ -13,4 +13,5 @@ public class TaskDbContext : DbContext
 
     public DbSet<TaskM> Tasks { get; set; }
 
+    public DbSet<TaskPriority> TaskPriorities { get; set; }
 }

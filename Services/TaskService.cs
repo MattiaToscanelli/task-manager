@@ -21,7 +21,7 @@ namespace TaskManager.Service
         
         public async Task<TaskM> CreateTaskAsync(TaskM task)
         {
-            task.TaskList = null; // Set TaskList to null to avoid circular reference
+            task.TaskList = null;
             _db.Tasks.Add(task);
             await _db.SaveChangesAsync();
             return task;

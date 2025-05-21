@@ -41,7 +41,10 @@
     </div>
 </div>
 
-<AddTask />
+@if (BoardModel != null)
+{
+    <AddTask BoardId="@BoardId" OnTaskAdded="LoadBoardData"/>
+}
 <AddTaskList BoardId="@BoardId" OnTaskListAdded="LoadBoardData" />
 
 @code {
@@ -51,7 +54,6 @@
     protected BoardM? BoardModel { get; set; }
 
     protected List<TaskListM>? TaskLists { get; set; }
-
 
     protected override async Task OnInitializedAsync()
     {

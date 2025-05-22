@@ -18,6 +18,14 @@ namespace TaskManager.Service
                 .Where(t => t.TaskList.Id == taskListId)
                 .ToListAsync();
         }
+
+        public async Task<TaskM?> GetTaskByIdAsync(int id)
+        {
+            return await _db.Tasks
+                .Include(t => t.Priority)
+                .Include(t => t.TaskList)
+                .FirstOrDefaultAsync(t => t.Id == id);
+        }
         
         public async Task<TaskM> CreateTaskAsync(TaskM task)
         {
@@ -52,6 +60,9 @@ namespace TaskManager.Service
                 return null;
             }
 
+            existingTask.Title = task.Title;
+            existingTask.Description = task.Description;
+            existingTask.PriorityId = task.PriorityId;
             existingTask.TaskListId = task.TaskListId;
 
             await _db.SaveChangesAsync();

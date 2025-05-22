@@ -16,6 +16,7 @@ namespace TaskManager.Service
         {
             return await _db.TaskLists
                 .Include(tl => tl.Tasks)
+                .ThenInclude(t => t.Priority)
                 .Where(tl => tl.Board.Id == boardId)
                 .ToListAsync();
         }

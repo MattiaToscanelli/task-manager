@@ -20,7 +20,7 @@
         {
             @foreach (var taskView in List.Tasks)
             {
-                <TaskView TaskId="@taskView.Id" Title="@taskView.Title" Description="@taskView.Description" />
+                <TaskView Task="@taskView" />
             }
         }
     </div>

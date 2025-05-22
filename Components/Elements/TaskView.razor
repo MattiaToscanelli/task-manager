@@ -1,24 +1,27 @@
-<div class="card text-bg-warning mt-2 mb-2" @onclick="() => OnClick(TaskId)">
+@using TaskManager.Models
+@using TaskManager.Service
+
+@inject IJSRuntime JavaScript
+@inject TaskState TaskState
+@inject TaskService TaskService
+
+
+<div class="card text-bg-warning mt-2 mb-2" @onclick="UpdateTask">
   <div class="card-header">
   </div>
   <div class="card-body">
-    <h5 class="card-title">@Title</h5>
-    <p class="card-text">@Description</p>
+    <h5 class="card-title">@Task.Title</h5>
+    <p class="card-text">@Task.Description</p>
   </div>
 </div>
 
 @code {
     [Parameter]
-    public int TaskId { get; set; }
+    public TaskM Task { get; set; }
 
-    [Parameter]
-    public string Title { get; set; } = string.Empty;
-
-    [Parameter]
-    public string Description { get; set; } = string.Empty;
-
-    public void OnClick(int taskId)
+    private async Task UpdateTask()
     {
-        Console.WriteLine($"Task {taskId} clicked.");
+        await TaskState.LoadTaskAsync(TaskService, Task.Id);
+        await JavaScript.InvokeVoidAsync("showEditTaskModal");
     }
 }

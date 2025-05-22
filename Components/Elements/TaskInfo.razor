@@ -1,0 +1,39 @@
+@using TaskManager.Models
+
+<div class="modal fade" id="taskInfoModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addTaskModalLabel">
+                    Task Info
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label for="name" class="col-form-label"><b>Name:</b></label>
+                    <p>@TaskV.Title</p>
+                </div>
+                <div class="mb-3">
+                    <label for="priority" class="col-form-label"><b>Priority:</b></label>
+                    <p>@TaskV.Priority.Name</p>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="col-form-label"><b>Description:</b></label>
+                    <p>@TaskV.Description</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public TaskM TaskV { get; set; }
+
+}

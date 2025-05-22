@@ -10,3 +10,11 @@ function collapseNavbar() {
         new bootstrap.Collapse(navbar).hide();
     }
 }
+
+function showEditTaskModal() {
+    const modalEl = document.getElementById('editTaskModal');
+    if (modalEl) {
+        const modal = new bootstrap.Modal(modalEl);
+        modal.show();
+    }
+}

@@ -49,10 +49,10 @@
 
 @if (BoardModel != null)
 {
-    <AddTask BoardId="@BoardId" OnTaskAdded="LoadBoardData"/>
+    <AddTask @ref="addTaskRef" BoardId="@BoardId" OnTaskAdded="LoadBoardData"/>
     if (TaskState.Task != null)
     {
-        <EditTask TaskE="@TaskState.Task" OnTaskAddedOrEdited="LoadBoardData" />
+        <EditTask @ref="editTaskRef" TaskE="@TaskState.Task" OnTaskAddedOrEdited="LoadBoardData" />
     }
 }
 <AddTaskList BoardId="@BoardId" OnTaskListAdded="LoadBoardData" />
@@ -64,6 +64,9 @@
     protected BoardM? BoardModel { get; set; }
 
     protected List<TaskListM>? TaskLists { get; set; }
+
+    private AddTask? addTaskRef;
+    private EditTask? editTaskRef;
 
     protected override async Task OnInitializedAsync()
     {
@@ -82,6 +85,17 @@
     protected async Task LoadBoardData()
     {
         TaskLists = await TaskListService.GetAllTaskListsAsync(BoardId);
+
+        if (addTaskRef != null)
+        {
+            await addTaskRef.RefreshTaskListsAsync();
+        }
+
+        if (editTaskRef != null)
+        {
+            await editTaskRef.RefreshTaskListsAsync();
+        }
+
         StateHasChanged();
     }
 

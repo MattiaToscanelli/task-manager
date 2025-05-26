@@ -99,4 +99,9 @@
 
         await JavaScript.InvokeVoidAsync("closeModal", "editTaskModal");
     }
+
+    public async Task RefreshTaskListsAsync()
+    {
+        await LoadBoardData();
+    }
 }

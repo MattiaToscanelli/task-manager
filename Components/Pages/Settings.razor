@@ -16,41 +16,24 @@
 <h3>Manage Boards</h3>
 <br />
 
-<button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addBoardModal">
+<button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addBoardModal">
     <i class="bi bi-plus"></i> Add Board
 </button>
 
 <!-- Table -->
-<table class="mb-5 table table-striped">
-    <thead>
-        <tr>
-            <th width='5%'>Id</th>
-            <th width='90%'>Name</th>
-            <th width='5%'>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (BoardState.Boards != null && BoardState.Boards.Count > 0)
-        {
-            foreach (var board in BoardState.Boards)
-            {
-                <tr>
-                    <td>@board.Id</td>
-                    <td>@board.Name</td>
-                    <td>
-                        <button class="btn btn-danger" @onclick="() => DeleteBoard(board.Id)">Delete</button>
-                    </td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td colspan="3">No boards available.</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<RadzenDataGrid Data="@BoardState.Boards" TItem="BoardM" RowHover="true" ShowPagingSummary="true" PageSize="5" AllowPaging="true" AllowSorting="true"  Style="min-height: 365px;">
+    <Columns>
+        <RadzenDataGridColumn TItem="BoardM" Property="Id" Title="Id" />
+        <RadzenDataGridColumn TItem="BoardM" Property="Name" Title="Name" />
+        <RadzenDataGridColumn TItem="BoardM" Title="Actions" Width="100px">
+            <Template Context="board">
+                <button class="btn btn-danger" @onclick="async () => await DeleteBoard(board.Id)">Delete</button>
+            </Template>
+        </RadzenDataGridColumn>
+    </Columns>
+</RadzenDataGrid>
+
+
 
 <hr />
 <h3 class="mt-5">Manage TaskPriority</h3>
@@ -60,36 +43,25 @@
 </button>
 
 <!-- Table -->
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th width='5%'>Id</th>
-            <th width='90%'>Name</th>
-            <th width='5%'>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (TaskPriorities != null && TaskPriorities.Count > 0)
-        {
-            foreach (var tp in TaskPriorities)
-            {
-                <tr>
-                    <td>@tp.Id</td>
-                    <td>@tp.Name</td>
-                    <td>
-                        <button class="btn btn-danger" @onclick="() => DeletePriority(tp.Id)">Delete</button>
-                    </td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td colspan="3">No boards available.</td>
-            </tr>
-        }
-    </tbody>
-</table>
+<RadzenDataGrid Data="@TaskPriorities" TItem="TaskPriority"
+                RowHover="true"
+                ShowPagingSummary="true"
+                PageSize="5"
+                AllowPaging="true"
+                AllowSorting="true"
+                Style="min-height: 365px;"
+                class="mb-5">
+    <Columns>
+        <RadzenDataGridColumn TItem="TaskPriority" Property="Id" Title="Id" />
+        <RadzenDataGridColumn TItem="TaskPriority" Property="Name" Title="Name" />
+        <RadzenDataGridColumn TItem="TaskPriority" Title="Actions" Width="100px">
+            <Template Context="tp">
+                <button class="btn btn-danger" @onclick="async () => await DeletePriority(tp.Id)">Delete</button>
+            </Template>
+        </RadzenDataGridColumn>
+    </Columns>
+</RadzenDataGrid>
+
 
 <AddBoard/>
 <AddTaskPriority OnTaskPriorityAdded="UpdateTaskPriority"/>

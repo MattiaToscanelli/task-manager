@@ -27,7 +27,7 @@
         <RadzenDataGridColumn TItem="BoardM" Property="Name" Title="Name" />
         <RadzenDataGridColumn TItem="BoardM" Title="Actions" Width="100px">
             <Template Context="board">
-                <button class="btn btn-danger" @onclick="async () => await DeleteBoard(board.Id)">Delete</button>
+                <button class="btn btn-danger" @onclick="() => confirmBoardDelete.Show(board.Id)">Delete</button>
             </Template>
         </RadzenDataGridColumn>
     </Columns>
@@ -38,7 +38,7 @@
 <hr />
 <h3 class="mt-5">Manage TaskPriority</h3>
 <br />
-<button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#addTaskPriorityModal">
+<button class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#addTaskPriorityModal">
     <i class="bi bi-plus"></i> Add TaskPriority
 </button>
 
@@ -56,7 +56,7 @@
         <RadzenDataGridColumn TItem="TaskPriority" Property="Name" Title="Name" />
         <RadzenDataGridColumn TItem="TaskPriority" Title="Actions" Width="100px">
             <Template Context="tp">
-                <button class="btn btn-danger" @onclick="async () => await DeletePriority(tp.Id)">Delete</button>
+                <button class="btn btn-danger" @onclick="() => confirmPriorityDelete.Show(tp.Id)">Delete</button>
             </Template>
         </RadzenDataGridColumn>
     </Columns>
@@ -65,10 +65,35 @@
 
 <AddBoard/>
 <AddTaskPriority OnTaskPriorityAdded="UpdateTaskPriority"/>
+<ConfirmDialog TItem="int" @ref="confirmBoardDelete" 
+               Title="Delete Board"
+               Message="Are you sure you want to delete this board?"
+               OnConfirm="DeleteBoardConfirmed" />
+
+<ConfirmDialog TItem="int" @ref="confirmPriorityDelete" 
+               Title="Delete Task Priority"
+               Message="Are you sure you want to delete this priority?"
+               OnConfirm="DeletePriorityConfirmed" />
 
 @code {
 
     List<TaskPriority>? TaskPriorities { get; set; }
+
+    private ConfirmDialog<int>? confirmBoardDelete;
+    private ConfirmDialog<int>? confirmPriorityDelete;
+
+    private async Task DeleteBoardConfirmed(int boardId)
+    {
+        await BoardService.DeleteBoardAsync(boardId);
+        await BoardState.LoadBoardsAsync(BoardService);
+    }
+
+    private async Task DeletePriorityConfirmed(int priorityId)
+    {
+        await TaskPriorityService.DeleteTaskPriorityAsync(priorityId);
+        await UpdateTaskPriority();
+    }
+
 
     protected override async Task OnInitializedAsync()
     {

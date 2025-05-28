@@ -31,14 +31,13 @@
     public TaskListM List { get; set; }
 
     [Parameter]
-    public EventCallback OnTaskListDeleted { get; set; }
+    public EventCallback<int> OnTaskListDeleted { get; set; }
 
     public async Task DeleteList()
     {
-        await TaskListService.DeleteTaskListAsync(List.Id);
         if (OnTaskListDeleted.HasDelegate)
         {
-            await OnTaskListDeleted.InvokeAsync();
+            await OnTaskListDeleted.InvokeAsync(List.Id);
         }
     }
 

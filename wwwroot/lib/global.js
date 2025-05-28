@@ -4,10 +4,13 @@ function closeModal(name) {
     modal.hide();
 }
 
-function collapseNavbar() {
-    var navbar = document.getElementById('navbarNav');
-    if (navbar.classList.contains('show')) {
-        new bootstrap.Collapse(navbar).hide();
+function closeOffcanvas() {
+    var offcanvasEl = document.getElementById('offcanvasWithBackdrop');
+    if (offcanvasEl) {
+        var offcanvas = bootstrap.Offcanvas.getInstance(offcanvasEl);
+        if (offcanvas) {
+            offcanvas.hide();
+        }
     }
 }
 

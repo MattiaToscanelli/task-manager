@@ -1,0 +1,61 @@
+@rendermode InteractiveServer
+@using TaskManager.Service
+
+@inject BoardState BoardState
+@inject BoardService BoardService
+@inject IJSRuntime JSRuntime
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel" style="width: 250px;">
+  <div class="offcanvas-header">
+    <h3 class="offcanvas-title" id="offcanvasWithBackdropLabel">Menu</h3>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <h4>Boards</h4>
+    @foreach (var board in BoardState.Boards)
+    {
+        <div class="link-item">
+            <NavLink class="nav-link" href="@($"/board/{board.Id}")" Match="NavLinkMatch.All" @onclick="CollapseSideBar">
+                @board.Name
+            </NavLink>
+        </div>
+    }
+    <hr>
+    <h4>Others</h4>
+    <div class="link-item">
+        <NavLink class="nav-link" href="/settings" @onclick="CollapseSideBar">
+            Settings
+        </NavLink>
+    </div>
+  </div>
+</div>
+
+@code {
+    @code {
+    protected override async Task OnInitializedAsync()
+    {
+        BoardState.OnChange += OnBoardStateChanged;
+
+        // Initial load
+        if (!BoardState.Boards.Any())
+        {
+            await BoardState.LoadBoardsAsync(BoardService);
+        }
+    }
+
+    private void OnBoardStateChanged()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    private async Task CollapseSideBar()
+    {
+        await JSRuntime.InvokeVoidAsync("closeOffcanvas");
+    }
+
+    public void Dispose()
+    {
+        BoardState.OnChange -= OnBoardStateChanged;
+    }
+}
+}

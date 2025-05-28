@@ -1,63 +1,33 @@
 ﻿@rendermode InteractiveServer
-@using TaskManager.Service
 
-@inject BoardState BoardState
-@inject BoardService BoardService
 @inject IJSRuntime JSRuntime
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-    <div class="container-fluid">
-        <NavLink class="navbar-brand fw-bold text-light" href="/">TaskManager</NavLink>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <div class="container-fluid d-flex align-items-center">
+        <!-- Bottone Offcanvas -->
+        <div class="navbar-left">
+            <button class="navbar-toggler d-block me-2" type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasWithBackdrop"
+                    aria-controls="offcanvasWithBackdrop"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <!-- Spazio tra bottone e titolo -->
+            <div class="me-2"></div>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                @foreach (var board in BoardState.Boards)
-                {
-                    <li class="nav-item">
-                        <NavLink class="nav-link"href="@($"/board/{board.Id}")" Match="NavLinkMatch.All" @onclick="CollapseNavbar">
-                            @board.Name
-                        </NavLink>
-                    </li>
-                }
-                <li class="nav-item">
-                    <NavLink class="nav-link" href="/settings" @onclick="CollapseNavbar">
-                        Settings
-                    </NavLink>
-                </li>
-            </ul>
+            <!-- Titolo -->
+            <NavLink class="navbar-brand fw-bold text-light" href="/">TaskManager</NavLink>
+        </div>
+        
+        <!-- Login -->
+        <div class="ms-auto">
+            <NavLink class="nav-link text-light" href="/login" >
+                <i class="bi bi-box-arrow-in-right"></i> Login
+            </NavLink>
         </div>
     </div>
 </nav>
 
-@code {
-    protected override async Task OnInitializedAsync()
-    {
-        BoardState.OnChange += OnBoardStateChanged;
 
-        // Initial load
-        if (!BoardState.Boards.Any())
-        {
-            await BoardState.LoadBoardsAsync(BoardService);
-        }
-    }
-
-    private void OnBoardStateChanged()
-    {
-        InvokeAsync(StateHasChanged);
-    }
-
-    private async Task CollapseNavbar()
-    {
-        await JSRuntime.InvokeVoidAsync("collapseNavbar");
-    }
-
-    public void Dispose()
-    {
-        BoardState.OnChange -= OnBoardStateChanged;
-    }
-}

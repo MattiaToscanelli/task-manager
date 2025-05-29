@@ -3,6 +3,8 @@
 @using TaskManager.Service
 
 @inject TaskListService TaskListService
+@inject TaskService TaskService
+@inject DragDropService DragDropService
 
 <div class="card flex-shrink-0 flex-grow-1 shadow-sm">
     <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
@@ -11,7 +13,7 @@
             <i class="bi bi-trash"></i> <!-- Bootstrap icon (optional) -->
         </button>
     </div>
-    <div class="card-body overflow-auto" style="flex-grow: 1;">
+    <div class="card-body overflow-auto @(isDragOver ? "drag-over" : "")" style="flex-grow: 1;" @ondrop="Prova" @ondragover:preventDefault @ondragover="OnDragOver" @ondragleave="OnDragLeave">
         @if (List.Tasks.Count == 0)
         {
             <p class="text-muted">No tasks available.</p>
@@ -27,11 +29,26 @@
 </div>
 
 @code {
+    private bool isDragOver = false;
+
     [Parameter]
     public TaskListM List { get; set; }
 
     [Parameter]
     public EventCallback<int> OnTaskListDeleted { get; set; }
+
+    [Parameter]
+    public EventCallback OnTaskDragged { get; set; }
+
+    private void OnDragOver(DragEventArgs e)
+    {
+        isDragOver = true;
+    }
+
+    private void OnDragLeave(DragEventArgs e)
+    {
+        isDragOver = false;
+    }
 
     public async Task DeleteList()
     {
@@ -41,4 +58,31 @@
         }
     }
 
+    private async Task Prova(DragEventArgs e)
+    {
+        isDragOver = false;
+
+        var taskId = DragDropService.DraggedTaskId;
+        if (taskId == null)
+        {
+            Console.WriteLine("No task ID found in DragDropService.");
+            return;
+        }
+
+        var task = await TaskService.GetTaskByIdAsync(taskId.Value);
+        if (task == null)
+        {
+            Console.WriteLine($"No task found for ID: {taskId}");
+            return;
+        }
+
+        Console.WriteLine($"Dropped Task {task.Id} into List {List.Id}");
+
+        task.TaskListId = List.Id;
+        await TaskService.UpdateTaskAsync(task);
+        DragDropService.DraggedTaskId = null;
+
+        if (OnTaskDragged.HasDelegate)
+            await OnTaskDragged.InvokeAsync();
+    }
 }

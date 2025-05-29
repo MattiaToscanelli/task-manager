@@ -4,9 +4,10 @@
 @inject IJSRuntime JavaScript
 @inject TaskState TaskState
 @inject TaskService TaskService
+@inject DragDropService DragDropService
 
 
-<div class="card text-bg-warning mt-2 mb-2" @onclick="UpdateTask">
+<div draggable="true" class="card text-bg-warning mt-2 mb-2" @onclick="UpdateTask" @ondragstart="() => DragDropService.DraggedTaskId = Task.Id">
   <div class="card-header">
   </div>
   <div class="card-body">

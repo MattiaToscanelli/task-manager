@@ -8,3 +8,9 @@
     display: flex; 
     flex-direction: column;
 }
+
+/* drag effect on card */
+.card-body.drag-over {
+    background-color: rgb(235, 235, 235);
+}
+

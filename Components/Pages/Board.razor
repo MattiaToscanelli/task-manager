@@ -32,7 +32,7 @@
             {
                 @foreach (var taskList in TaskLists)
                 {
-                    <TaskList List="@taskList" OnTaskListDeleted="DeleteTaskList" />
+                    <TaskList List="@taskList" OnTaskListDeleted="DeleteTaskList" OnTaskDragged="LoadBoardData" />
                 }
             }
 

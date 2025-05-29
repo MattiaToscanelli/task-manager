@@ -17,6 +17,7 @@ builder.Services.AddScoped<TaskListService>();
 builder.Services.AddScoped<TaskPriorityService>();
 builder.Services.AddSingleton<TaskState>();
 builder.Services.AddScoped<TaskService>();
+builder.Services.AddScoped<DragDropService>();
 
 builder.Services.AddDbContext<TaskDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));

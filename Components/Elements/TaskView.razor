@@ -6,7 +6,6 @@
 @inject TaskService TaskService
 @inject DragDropService DragDropService
 
-
 <div draggable="true" class="card mt-2 mb-2 shadow-sm border-0 task-card"
      @onclick="UpdateTask"
      @ondragstart="() => DragDropService.DraggedTaskId = Task.Id"
@@ -16,19 +15,32 @@
             <h5 class="card-title mb-0 text-truncate title-multiline" title="@Task.Title">@Task.Title</h5>
             <span class="badge bg-secondary p-1">@Task.Priority?.Name</span>
         </div>
-        <br>
-        <p class="card-text text-muted mb-0" style="white-space: pre-wrap;">@Task.Description</p>
+
+        <p class="card-text text-muted mb-2" style="white-space: pre-wrap;">@Task.Description</p>
+
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-sm btn-outline-danger" @onclick:stopPropagation="true" @onclick="DeleteTask">
+                <i class="bi bi-trash"></i>
+            </button>
+        </div>
     </div>
 </div>
-
 
 @code {
     [Parameter]
     public TaskM Task { get; set; }
 
+    [CascadingParameter]
+    public Func<int, Task> DeleteTaskCallback { get; set; }
+
+    private async Task DeleteTask()
+    {
+        await DeleteTaskCallback.Invoke(Task.Id);
+    }
+
     private async Task UpdateTask()
     {
         await TaskState.LoadTaskAsync(TaskService, Task.Id);
         await JavaScript.InvokeVoidAsync("showEditTaskModal");
-    }
+    }    
 }

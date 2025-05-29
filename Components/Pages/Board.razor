@@ -40,10 +40,12 @@
         <div class="d-flex overflow-auto gap-3 p-2" style="scroll-snap-type: x mandatory;">
             @if (TaskLists != null && TaskLists.Count > 0)
             {
-                @foreach (var taskList in TaskLists)
-                {
-                    <TaskList List="@taskList" OnTaskListDeleted="DeleteTaskList" OnTaskDragged="LoadBoardData" />
-                }
+                <CascadingValue Value="(Func<int, Task>)DeleteTask">
+                    @foreach (var taskList in TaskLists)
+                    {
+                        <TaskList List="@taskList" OnTaskListDeleted="DeleteTaskList" OnTaskDragged="LoadBoardData" />
+                    }
+                </CascadingValue>
             }
 
             <div class="card flex-shrink-0 flex-grow-1 shadow-sm" 
@@ -72,6 +74,11 @@
                Message="Are you sure you want to delete this task list?"
                OnConfirm="DeleteTaskListConfirmed" />
 
+<ConfirmDialog TItem="int" @ref="confirmTaskDelete" 
+               Title="Delete Task"
+               Message="Are you sure you want to delete this task?"
+               OnConfirm="DeleteTaskConfirmed" />
+
 @code {
     [Parameter]
     public int BoardId { get; set; }
@@ -81,6 +88,8 @@
     protected List<TaskListM>? TaskLists { get; set; }
 
     private ConfirmDialog<int>? confirmTaskListDelete;
+
+    private ConfirmDialog<int>? confirmTaskDelete;
 
     private AddTask? addTaskRef;
     private EditTask? editTaskRef;
@@ -107,9 +116,23 @@
         }
     }
 
+    private async Task DeleteTask(int taskId)
+    {
+        if (confirmTaskDelete != null)
+        {
+            confirmTaskDelete.Show(taskId);
+        }
+    }
+
     private async Task DeleteTaskListConfirmed(int taskListId)
     {
         await TaskListService.DeleteTaskListAsync(taskListId);
+        await LoadBoardData();
+    }
+
+    private async Task DeleteTaskConfirmed(int taskListId)
+    {
+        await TaskService.DeleteTaskAsync(taskListId);
         await LoadBoardData();
     }
 

@@ -1,5 +1,6 @@
 @rendermode InteractiveServer
 @using TaskManager.Service
+@implements IDisposable
 
 @inject BoardState BoardState
 @inject BoardService BoardService
@@ -31,7 +32,6 @@
 </div>
 
 @code {
-    @code {
     protected override async Task OnInitializedAsync()
     {
         BoardState.OnChange += OnBoardStateChanged;
@@ -57,5 +57,4 @@
     {
         BoardState.OnChange -= OnBoardStateChanged;
     }
-}
 }

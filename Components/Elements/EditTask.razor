@@ -18,6 +18,16 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                <p class="text-muted mt-3">
+                    <strong>Note:</strong> You can only edit tasks that are already created.
+                </p>
+                <p class="text-muted
+                    mb-0">
+                    <strong>Tip:</strong> Use the drag-and-drop feature to move tasks between columns.
+                </p>
+            </div>
+            <hr>
+            <div class="modal-body">
                 <EditForm Model="TaskE" OnValidSubmit="HandleValidSubmit">
                     <DataAnnotationsValidator />
                     <ValidationSummary />

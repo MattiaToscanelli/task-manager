@@ -22,6 +22,11 @@
                         <InputText id="name" class="form-control" @bind-Value="taskPriority.Name" />
                     </div>
 
+                    <div class="mb-3">
+                        <label for="order" class="col-form-label">Order:</label>
+                        <InputNumber id="order" class="form-control" @bind-Value="taskPriority.Order" />
+                    </div>
+
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-primary">Add</button>
@@ -36,13 +41,13 @@
     [Parameter]
     public EventCallback OnTaskPriorityAdded { get; set; }
 
-    private TaskPriority? taskPriority = new TaskPriority {Name = string.Empty};
+    private TaskPriority? taskPriority = new TaskPriority {Name = string.Empty, Order = 0};
 
     private async Task HandleValidSubmit()
     {
         await TaskPriorityService.CreateTaskPriorityAsync(taskPriority);
 
-        taskPriority = new TaskPriority {Name = string.Empty};
+        taskPriority = new TaskPriority {Name = string.Empty, Order = 0};
 
         await JavaScript.InvokeVoidAsync("closeModal", "addTaskPriorityModal");
 

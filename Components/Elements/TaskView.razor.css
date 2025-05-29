@@ -1,7 +1,17 @@
 .card {
     cursor: pointer;
     transition: transform 0.2s;
+    background-color: rgb(240, 240, 125);
 }
+
+.title-multiline {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;        /* show max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+}
+
 
 .card:hover {
     transform: scale(1.05);

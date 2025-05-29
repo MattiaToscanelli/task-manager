@@ -43,5 +43,20 @@ namespace TaskManager.Service
                 await _db.SaveChangesAsync();
             }
         }
+
+        public async Task<BoardM> UpdateBoardAsync(BoardM board)
+        {
+            var existingBoard = await _db.Boards.FindAsync(board.Id);
+            if (existingBoard == null)
+            {
+                return null;
+            }
+
+            existingBoard.Name = board.Name;
+
+            _db.Boards.Update(existingBoard);
+            await _db.SaveChangesAsync();
+            return existingBoard;
+        }
     }
 }

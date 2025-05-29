@@ -11,6 +11,9 @@ namespace TaskManager.Models
 
         [MinLength(3, ErrorMessage = "Please insert a name bigger than 3 letters.")]
         public required string Name { get; set; }
+
+        [Range(1, int.MaxValue, ErrorMessage = "Please select an order.")]
+        public int Order { get; set; }
         
         [InverseProperty("Priority")]
         public List<TaskM> Tasks { get; set; } = new List<TaskM>();

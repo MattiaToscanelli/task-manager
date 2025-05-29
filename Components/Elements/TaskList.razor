@@ -13,14 +13,14 @@
             <i class="bi bi-trash"></i> <!-- Bootstrap icon (optional) -->
         </button>
     </div>
-    <div class="card-body overflow-auto @(isDragOver ? "drag-over" : "")" style="flex-grow: 1;" @ondrop="Prova" @ondragover:preventDefault @ondragover="OnDragOver" @ondragleave="OnDragLeave">
+    <div class="card-body overflow-auto @(isDragOver ? "drag-over" : "")" style="flex-grow: 1;" @ondrop="DropTask" @ondragover:preventDefault @ondragover="OnDragOver" @ondragleave="OnDragLeave">
         @if (List.Tasks.Count == 0)
         {
             <p class="text-muted">No tasks available.</p>
         }
         else
         {
-            @foreach (var taskView in List.Tasks)
+            @foreach (var taskView in List.Tasks.OrderByDescending(t => t.Priority?.Id))
             {
                 <TaskView Task="@taskView" />
             }
@@ -58,25 +58,21 @@
         }
     }
 
-    private async Task Prova(DragEventArgs e)
+    private async Task DropTask(DragEventArgs e)
     {
         isDragOver = false;
 
         var taskId = DragDropService.DraggedTaskId;
         if (taskId == null)
         {
-            Console.WriteLine("No task ID found in DragDropService.");
             return;
         }
 
         var task = await TaskService.GetTaskByIdAsync(taskId.Value);
         if (task == null)
         {
-            Console.WriteLine($"No task found for ID: {taskId}");
             return;
         }
-
-        Console.WriteLine($"Dropped Task {task.Id} into List {List.Id}");
 
         task.TaskListId = List.Id;
         await TaskService.UpdateTaskAsync(task);

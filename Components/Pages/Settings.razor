@@ -28,18 +28,41 @@
                 PageSize="5" 
                 AllowPaging="true" 
                 AllowSorting="true"
+                AllowEditing="true"
+                EditMode="DataGridEditMode.Single"
+                RowUpdate="@OnUpdateBoard"
+                RowEditCancel="@OnCancelBoardEdit"
+                @ref="boardGrid"
                 class="mb-5">
+
     <Columns>
         <RadzenDataGridColumn TItem="BoardM" Property="Id" Title="Id" />
-        <RadzenDataGridColumn TItem="BoardM" Property="Name" Title="Name" />
-        <RadzenDataGridColumn TItem="BoardM" Title="Actions" Width="100px">
+
+        <RadzenDataGridColumn TItem="BoardM" Property="Name" Title="Name">
+            <EditTemplate Context="board">
+                <RadzenTextBox @bind-Value="board.Name" Style="width: 100%;" Name="BoardName" />
+                <RadzenRequiredValidator Component="BoardName" Text="Name is required" Style="position: absolute;" />
+            </EditTemplate>
+        </RadzenDataGridColumn>
+
+        <RadzenDataGridColumn TItem="BoardM" Title="Actions" Width="90px">
             <Template Context="board">
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-danger" @onclick="() => confirmBoardDelete.Show(board.Id)">
-                        <i class="bi bi-trash"></i>
-                    </button>
+                    <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Small"
+                                  Click="@(() => boardGrid.EditRow(board))" class="me-2" />
+                    <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Danger" Size="ButtonSize.Small"
+                                  Click="@(() => confirmBoardDelete.Show(board.Id))" />
                 </div>
             </Template>
+
+            <EditTemplate Context="board">
+                <div class="d-flex justify-content-center">
+                    <RadzenButton Icon="check" ButtonStyle="ButtonStyle.Success" Size="ButtonSize.Small"
+                                  Click="@(() => boardGrid.UpdateRow(board))" class="me-2" />
+                    <RadzenButton Icon="cancel" ButtonStyle="ButtonStyle.Light" Size="ButtonSize.Small"
+                                  Click="@(() => boardGrid.CancelEditRow(board))" />
+                </div>
+            </EditTemplate>
         </RadzenDataGridColumn>
     </Columns>
 </RadzenDataGrid>
@@ -60,21 +83,44 @@
                 PageSize="5"
                 AllowPaging="true"
                 AllowSorting="true"
+                AllowEditing="true"
+                EditMode="DataGridEditMode.Single"
+                @ref="taskPriorityGrid"
+                RowUpdate="@OnUpdateTaskPriority"
+                RowEditCancel="@OnCancelTaskPriorityEdit"
                 class="mb-5">
     <Columns>
         <RadzenDataGridColumn TItem="TaskPriority" Property="Id" Title="Id" />
-        <RadzenDataGridColumn TItem="TaskPriority" Property="Name" Title="Name" />
-        <RadzenDataGridColumn TItem="TaskPriority" Title="Actions" Width="100px">
+        <RadzenDataGridColumn TItem="TaskPriority" Property="Name" Title="Name">
+            <EditTemplate Context="tp">
+                <RadzenTextBox @bind-Value="tp.Name" Style="width: 100%;" />
+            </EditTemplate>
+        </RadzenDataGridColumn>
+        
+        <RadzenDataGridColumn TItem="TaskPriority" Property="Order" Title="Order">
+            <EditTemplate Context="tp">
+                <RadzenNumeric @bind-Value="tp.Order" Min="1" Style="width: 100%;" />
+            </EditTemplate>
+        </RadzenDataGridColumn>
+
+        <RadzenDataGridColumn TItem="TaskPriority" Title="Actions" Width="90px">
+            
             <Template Context="tp">
                 <div class="d-flex justify-content-center">
-                    <button class="btn btn-danger" @onclick="() => confirmPriorityDelete.Show(tp.Id)">
-                        <i class="bi bi-trash"></i>
-                    </button>
+                    <RadzenButton Icon="edit" ButtonStyle="ButtonStyle.Primary" Size="ButtonSize.Small" Click="@(() => taskPriorityGrid.EditRow(tp))" class="me-2" />
+                    <RadzenButton Icon="delete" ButtonStyle="ButtonStyle.Danger" Size="ButtonSize.Small" Click="@(() => confirmPriorityDelete.Show(tp.Id))" />
                 </div>
             </Template>
+            <EditTemplate Context="tp">
+                <div class="d-flex justify-content-center">
+                    <RadzenButton Icon="check" ButtonStyle="ButtonStyle.Success" Size="ButtonSize.Small" Click="@(() => taskPriorityGrid.UpdateRow(tp))" class="me-2" />
+                    <RadzenButton Icon="cancel" ButtonStyle="ButtonStyle.Light" Size="ButtonSize.Small" Click="@(() => taskPriorityGrid.CancelEditRow(tp))" />
+                </div>
+            </EditTemplate>
         </RadzenDataGridColumn>
     </Columns>
 </RadzenDataGrid>
+
 
 
 <AddBoard/>
@@ -95,6 +141,43 @@
 
     private ConfirmDialog<int>? confirmBoardDelete;
     private ConfirmDialog<int>? confirmPriorityDelete;
+
+    private RadzenDataGrid<TaskPriority> taskPriorityGrid;
+
+    private RadzenDataGrid<BoardM> boardGrid;
+
+    private async Task OnUpdateBoard(BoardM board)
+    {
+        if (board == null)
+        {
+            return;
+        }
+
+        await BoardService.UpdateBoardAsync(board);
+        await BoardState.LoadBoardsAsync(BoardService);
+    }
+
+    private void OnCancelBoardEdit(BoardM board)
+    {
+        // Optionally reload board data or rollback changes
+    }
+
+    private void OnUpdateTaskPriority(TaskPriority taskPriority)
+    {
+        if (taskPriority == null)
+        {
+            return;
+        }
+
+        // Update the task priority in the service
+        TaskPriorityService.UpdateTaskPriorityAsync(taskPriority);
+    }
+
+    private void OnCancelTaskPriorityEdit(TaskPriority taskPriority)
+    {
+        // Optionally revert changes or reload data
+    }
+
 
     private async Task DeleteBoardConfirmed(int boardId)
     {
@@ -125,9 +208,7 @@
     private async Task DeleteBoard(int boardId)
     {
         await BoardService.DeleteBoardAsync(boardId);
-
         await BoardState.LoadBoardsAsync(BoardService);
-
     }
 
     private async Task UpdateTaskPriority()
@@ -139,7 +220,7 @@
     private async Task DeletePriority(int priorityId)
     {
         await TaskPriorityService.DeleteTaskPriorityAsync(priorityId);
-        UpdateTaskPriority();
+        await UpdateTaskPriority();
     }
 
     private void OnBoardStateChanged()

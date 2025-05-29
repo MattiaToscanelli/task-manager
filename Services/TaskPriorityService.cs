@@ -40,5 +40,24 @@ namespace TaskManager.Service
             await _db.SaveChangesAsync();
             return true;
         }
+
+        //update task priority
+        public async Task<TaskPriority> UpdateTaskPriorityAsync(TaskPriority taskPriority)
+        {
+            var existingPriority = await _db.TaskPriorities
+                .FirstOrDefaultAsync(tp => tp.Id == taskPriority.Id);
+
+            if (existingPriority == null)
+            {
+                return null;
+            }
+
+            existingPriority.Name = taskPriority.Name;
+            existingPriority.Order = taskPriority.Order;
+
+            _db.TaskPriorities.Update(existingPriority);
+            await _db.SaveChangesAsync();
+            return existingPriority;
+        }
     }
 }

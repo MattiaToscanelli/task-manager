@@ -20,10 +20,11 @@
         }
         else
         {
-            @foreach (var taskView in List.Tasks.OrderByDescending(t => t.Priority?.Id))
+            @foreach (var taskView in GetSortedTasks())
             {
                 <TaskView Task="@taskView" />
             }
+
         }
     </div>
 </div>
@@ -39,6 +40,21 @@
 
     [Parameter]
     public EventCallback OnTaskDragged { get; set; }
+
+    [Parameter]
+    public bool Ordered { get; set; } = false;
+
+    private IEnumerable<TaskM> GetSortedTasks()
+    {
+        if (Ordered)
+        {
+            return List.Tasks.OrderByDescending(t => t.LastModifiedDate);
+        }
+        else
+        {
+            return List.Tasks.OrderByDescending(t => t.Priority?.Order ?? int.MaxValue);
+        }
+    }
 
     private void OnDragOver(DragEventArgs e)
     {

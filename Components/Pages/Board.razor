@@ -28,8 +28,8 @@
 
             <label class="form-label me-2 mb-0" for="sortSelect">Sort tasks by:</label>
             <div>
-                <select id="sortSelect" class="form-select" style="width: auto;" >
-                    <option value="date">Date</option>
+                <select id="sortSelect" class="form-select" style="width: auto;" @onchange="OnSelectChange">
+                    <option value="date">Last update date</option>
                     <option value="priority">Priority</option>
                 </select>
             </div>
@@ -43,7 +43,7 @@
                 <CascadingValue Value="(Func<int, Task>)DeleteTask">
                     @foreach (var taskList in TaskLists)
                     {
-                        <TaskList List="@taskList" OnTaskListDeleted="DeleteTaskList" OnTaskDragged="LoadBoardData" />
+                        <TaskList List="@taskList" OnTaskListDeleted="DeleteTaskList" OnTaskDragged="LoadBoardData" Ordered="Ordered" />
                     }
                 </CascadingValue>
             }
@@ -93,6 +93,8 @@
 
     private AddTask? addTaskRef;
     private EditTask? editTaskRef;
+
+    private bool Ordered { get; set; } = true;
 
     protected override async Task OnInitializedAsync()
     {
@@ -151,6 +153,21 @@
         }
 
         StateHasChanged();
+    }
+
+    public async Task OnSelectChange(ChangeEventArgs e)
+    {
+        var value = e.Value?.ToString();
+        if (value == "date")
+        {
+            Ordered = true;
+        }
+        else if (value == "priority")
+        {
+            Ordered = false;
+        }
+
+        await LoadBoardData();
     }
 
     public void Dispose()

@@ -64,6 +64,7 @@ namespace TaskManager.Service
             existingTask.Description = task.Description;
             existingTask.PriorityId = task.PriorityId;
             existingTask.TaskListId = task.TaskListId;
+            existingTask.LastModifiedDate = DateTime.UtcNow.AddHours(2);
 
             await _db.SaveChangesAsync();
             return existingTask;

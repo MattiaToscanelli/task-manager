@@ -27,5 +27,11 @@ namespace TaskManager.Models
 
         [JsonIgnore]
         public TaskListM? TaskList { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedDate { get; set; } = DateTime.UtcNow.AddHours(2);
+
+        [DataType(DataType.DateTime)]
+        public DateTime LastModifiedDate { get; set; } = DateTime.UtcNow;
     }
 }

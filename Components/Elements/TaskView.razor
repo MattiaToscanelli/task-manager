@@ -8,8 +8,7 @@
 
 <div draggable="true" class="card mt-2 mb-2 shadow-sm border-0 task-card"
      @onclick="UpdateTask"
-     @ondragstart="() => DragDropService.DraggedTaskId = Task.Id"
-     style="cursor: grab; transition: transform 0.1s ease-in-out;">
+     @ondragstart="() => DragDropService.DraggedTaskId = Task.Id">
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center mb-2">
             <h5 class="card-title mb-0 text-truncate title-multiline" title="@Task.Title">@Task.Title</h5>
@@ -19,8 +18,11 @@
         <p class="card-text text-muted mb-2" style="white-space: pre-wrap;">@Task.Description</p>
 
         <div class="d-flex justify-content-end">
-            <button class="btn btn-sm btn-outline-danger" @onclick:stopPropagation="true" @onclick="DeleteTask">
-                <i class="bi bi-trash"></i>
+            <button class="btn btn-sm btn-outline-danger"
+              style="border: none;"
+              @onclick:stopPropagation="true"
+              @onclick="DeleteTask">
+                <i class="bi bi-trash-fill"></i>
             </button>
         </div>
     </div>

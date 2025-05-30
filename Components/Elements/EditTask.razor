@@ -19,11 +19,11 @@
             </div>
             <div class="modal-body">
                 <p class="text-muted mt-3">
-                    <strong>Note:</strong> You can only edit tasks that are already created.
+                    <strong>Created:</strong> <span>@TaskE.CreatedDate.ToString("MM/dd/yyyy HH:mm:ss")</span>
                 </p>
                 <p class="text-muted
                     mb-0">
-                    <strong>Tip:</strong> Use the drag-and-drop feature to move tasks between columns.
+                    <strong>Last Updated:</strong> <span>@TaskE.LastModifiedDate.ToString("MM/dd/yyyy HH:mm:ss")</span>
                 </p>
             </div>
             <hr>

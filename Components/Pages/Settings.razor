@@ -1,6 +1,9 @@
 @page "/settings"
 @rendermode InteractiveServer
 
+@attribute [Authorize]
+@attribute [StreamRendering]
+
 @using TaskManager.Models
 @using TaskManager.Service
 @using TaskManager.Components.Elements

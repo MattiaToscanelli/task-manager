@@ -1,6 +1,9 @@
 @page "/board/{boardId:int}"
 @rendermode InteractiveServer
 
+@attribute [Authorize]
+@attribute [StreamRendering]
+
 @using TaskManager.Components.Elements
 @using TaskManager.Models
 @using TaskManager.Service

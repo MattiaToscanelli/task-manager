@@ -2,3 +2,8 @@
     display: flex; 
     align-items: center;
 }
+
+.link-item {
+    color: white;
+    margin: auto !important;
+}

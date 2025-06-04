@@ -1,12 +1,16 @@
 <AuthorizeView>
-    <Authorized>
-        <a class="btn btn-danger me-2" href="Account/Logout">
-            <i class="bi bi-box-arrow-right me-1"></i> Log out
-        </a>
+    <Authorized> 
+        <div class="link-item">
+            <NavLink href="Account/Logout" class="nav-link">
+                <i class="bi bi-box-arrow-right me-1"></i> Log out
+            </NavLink>
+        </div>
     </Authorized>
     <NotAuthorized>
-        <a class="btn btn-primary" href="Account/Login">
-            <i class="bi bi-box-arrow-in-right me-1"></i> Log in
-        </a>
+        <div class="link-item">
+            <NavLink href="Account/Login" class="nav-link">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Log in
+            </NavLink>
+        </div>
     </NotAuthorized>
 </AuthorizeView>

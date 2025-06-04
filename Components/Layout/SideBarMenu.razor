@@ -15,7 +15,6 @@
     <div class="offcanvas-body">
         @if (User?.Identity?.IsAuthenticated == true)
         {
-            <hr>
             <h4>Boards</h4>
             @foreach (var board in BoardState.Boards)
             {
@@ -35,9 +34,7 @@
         }
         <hr>
         <h4>Account</h4>
-        <div class="link-item">
-            <Login />
-        </div>
+        <Login />
     </div>
 </div>
 

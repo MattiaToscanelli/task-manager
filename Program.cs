@@ -6,9 +6,6 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Authorization;
 
-//dotnet add package Microsoft.EntityFrameworkCore --> for EF Core support
-//dotnet add package Npgsql.EntityFrameworkCore.PostgreSQL --> for PostgreSQL support
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddCascadingAuthenticationState();
